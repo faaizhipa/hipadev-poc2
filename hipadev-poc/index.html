@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--🎧-->
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="./style/bootstrap/bootstrap.css">
+
+<!-- To be transferred to index.css --> 
+<!--🎨-->
+<style>
+/* CSS Variables Declarations and redefined root property values */
+:root {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+--tacodt:  375px;
+--angsyen: 753px;
+--boek: 1189px;
+--manjah: 1918px;
+--widthpercol: calc(100vw/12);
+--thirdofcol: calc(var(--widthpercol)*0.33);
+--heightofrow: calc(100vh/12);
+--minpagemargin: calc(0.925%*100vh);
+--hipadev-white: rgba(255, 253, 249, 0.952); 
+--hipadev-black: rgb(19, 19, 19);
+}
+body {
+	background-color: var(--hipadev-black);
+}
+/*✨ Animation Keyframes Declarations*/
+	
+.can-breath-subtle {
+  /* variables for 0-1, multiply by 100 if rindu 0-100*/
+	--breath-in: 0.2;
+	--breath-out: 0.9;
+	--interval: 2.5s;
+  -webkit-animation: breath ease var(--interval) infinite both alternate running;
+  -moz-animation:    breath ease var(--interval) infinite both alternate running;
+  -o-animation:      breath ease var(--interval) infinite both alternate running;
+  animation:         breath ease var(--interval) infinite both alternate running;
+}
+
+.can-breath-apparently {
+  /* variables for 0-1, multiply by 100 if rindu 0-100*/
+	--breath-in: 0;
+	--breath-out: 1;
+	--interval: 1s;
+  -webkit-animation: breath ease var(--interval) infinite both alternate running;
+  -moz-animation:    breath ease var(--interval) infinite both alternate running;
+  -o-animation:      breath ease var(--interval) infinite both alternate running;
+  animation:         breath ease var(--interval) infinite both alternate running;
+}
+	
+@-webkit-keyframes breath {
+  0%   { opacity: var(--breath-in); }
+  100% { opacity: var(--breath-out); }
+}
+@-moz-keyframes breath {
+  0%   { opacity: var(--breath-in); }
+  100% { opacity: var(--breath-out); }
+}
+@-o-keyframes breath {
+  0%   { opacity: var(--breath-in); }
+  100% { opacity: var(--breath-out); }
+}
+@keyframes breath {
+  0%   { opacity: var(--breath-in); }
+  100% { opacity: var(--breath-out); }
+}
+
+/* ID styles declarations */
+/* IDs for 🎏 Page Anatomy/Section */
+#shopfront {
+	/*The visible part/initial viewport of the page as soon as it loads*/
+	min-height: 600px;
+	min-width: 600px;
+}
+
+/* Classes Style Declarations */
+/* Classes for 📊 Backdrop Styling*/
+.hipa-bg {
+	position: fixed;
+	height: 100vh;
+	max-width: 100vw;
+	top: 0;
+	overflow: hidden;
+	opacity: 1;
+	background-image: url("./assets/img/hipa-bg.jpg");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: cover;
+	z-index: -5;
+}
+.hipa-bg-overlay {
+	position: absolute;
+	height: 125vh;
+	max-width: 100vw;
+	top: -25vh;
+	overflow: hidden;
+	opacity: 1;
+	background: rgb(19,19,19);
+    background: radial-gradient(circle, rgba(19,19,19,0) 0%, rgba(19,19,19,0.49093140674238445) 21%, rgba(19,19,19,1) 84%, rgba(19,19,19,1) 100%);
+	/*background-position: bottom;*/
+	background-size: cover;
+	z-index: -4;
+}
+.hipa-bg-overlay-void {
+	position: absolute;
+	height: 25vh;
+	max-width: 100vw;
+	top: 75vh;
+	overflow: hidden;
+	opacity: 1;
+	colour: #050505;
+	background-color: #050505;
+	z-index: -3;
+}
+.hipa-bg-overlay-readability {
+	position: absolute;
+    background: linear-gradient(0deg, rgba(19,19,19,1) 0%, rgba(19,19,19,1) 25%, rgba(19,19,19,0) 100%);
+	height: 100vh;
+	max-width: 100vw;
+	top: 0;
+	background-position: top;
+	opacity: 1;
+	z-index: -2;
+}
+.hipa-bg-overlay-top-gradient {
+	position: absolute;
+	background: rgb(19,19,19);
+    background: linear-gradient(180deg, rgba(19,19,19,1) 0%, rgba(19,19,19,1) 25%, rgba(19,19,19,0) 100%);
+	height: 20vh;
+	max-width: 100vw;
+	top: 0;
+	background-position: top;
+	opacity: 1;
+	z-index: -1;
+}
+.hipa-bg-overlay-neon {
+	position: fixed;
+	height: 100vh;
+	max-width: 100vw;
+	top: 0;
+	overflow: hidden;
+	opacity: 1;
+	background-image: url("./assets/img/hipa-bg-overlay.jpg.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: cover;
+	z-index: -2;
+}
+.hipa-column-grids 
+	/*for use during development/production for layout/design comparison - 1 - display:none when not in use, otherwise display: block;
+	2 - ease in and out for convenient actual and grid view comparison*/{
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	bottom: 0;
+	opacity: 1;
+	z-index: -1;
+}
+.line-clear-all {
+	height: clamp(20, var(--widthofcol), 60px);
+	top: 0;
+	position:absolute;
+	}
+.line-clear-small {
+		top: 0;
+		min-height: 20px;
+		position:absolute;
+	}
+.logo-emblem {
+	height: clamp(38px, var(--minpagemargin), 40px));
+	opacity: 1;
+	background-image: url("./assets/img/logo.png");
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
+	background-origin: border-box;
+	}
+.logo-title {
+	height: var(widthofcol);
+	overflow: hidden;
+	opacity: 1;
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+}
+
+#element {
+ color: var(--hipadev-white);
+ background-blend-mode: overlay;
+ font-size: 9rem;
+ position-top: 100rem;
+}
+
+</style>
+<title>HIPA 💻 Celcom</title>
+</head>
+
+<body>
+<!-- 🖼 Background Image and Style -->
+<div id="backdrop">
+<div class="hipa-bg container-fluid"> 
+    <!-- to animate this thing - fade darker, then fade logo onto screen, then tore them apart--> 
+    <!-- to create two gradient black to transparent approx col-5length each side of screen--> 
+</div>
+<div class="hipa-bg-overlay container-fluid">
+</div>
+<!-- div for filling the aethetic void from raising the overlay above, above 25%m of the current viewport -->
+<div class="hipa-bg-overlay-void container-fluid"></div>
+<!-- this div allows for darker screen and easier-to-adjust screen layer in case of adapting other background images -->
+<div class="hipa-bg-overlay-readability container-fluid"></div>
+<!--to accentuate background-->
+<div class="hipa-bg-overlay-neon can-breath-apparently container-fluid"></div>
+<!-- Guides for screen md and above - 12-column guide -->
+<div class="hipa-bg-overlay-top-gradient container-fluid"></div>
+<!-- Guides for screen md and above - 12-column guide -->
+<div class="hipa-column-grids d-flex justify-content-between align-items-stretch flex-row can-breath-subtly">
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+    <div class="d-inline-flex flex-fill border"> tab desk </div>
+</div>
+<!-- 12-Col-Guide Ends --> 
+</div>
+	
+<!--START Content-->
+	<!--START Header Section -->
+<section id="shopfront" class="flex-column d-flex">
+<div class="header container-fluid">
+    <div class="flex-column d-flex">
+        <div class="line-clear-all d.none d-lg-block"></div>
+		<div class="line-clear-small fixed-top"></div>
+    </div>
+    
+    <!--START-->
+    <div class="row justify-content-center align-items-stretch">
+        <div class="buffer-left col-1"></div>
+		<div class="content-left col-10 d-flex flex-row">
+			<div class="col-2">
+				<div class="logo-emblem"></div>
+				<div class="logo-title"></div>
+			</div>
+			<div class="col-2">
+				<div class="logo-emblem"></div>
+				<div class="logo-title"></div>
+				<div class="logo-emblem"></div>
+				<div class="logo-title"></div>
+				<div class="logo-emblem"></div>
+				<div class="logo-title"></div>
+			</div>
+			<div></div>
+
+		</div>
+		<div class="buffer-right col-1"></div>
+		<h1 id="element" class="">Please reconsider me as one your CKs. </h1>
+	</div>
+</div>
+</section>
+
+<!--Typeit JS plugin-->
+<script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+
+<!--Type it arguments-->
+<script>
+new TypeIt("#element", {
+	strings: "<mark>Please</mark>. <em> Thank you </em>",
+	speed: 75,
+	loop: true
+  }).go();
+</script>
+
+<!-- jQuery and Bootstrap Bundle (includes Popper) --> 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
